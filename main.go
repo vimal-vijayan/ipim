@@ -7,11 +7,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const (
+	ipimVersion = "0.1.0"
+)
+
 var rootCmd = &cobra.Command{
-	Use:   "ipim",
-	Short: "ipim is a command line tool for managing azure previlaged identity management",
-	// Long:
-	//ipimLong,
+	Use:     "ipim",
+	Short:   "ipim is a command line tool for managing azure previlaged identity management",
+	Long:    ipimLong(),
+	Version: getCurrentVersion(),
 }
 
 var getCmd = &cobra.Command{
@@ -19,10 +23,23 @@ var getCmd = &cobra.Command{
 	Short: "Get the PIM Roles",
 }
 
+var getRolesCmd = &cobra.Command{
+	Use:   "ipim get roles",
+	Short: "Get the PIM Roles",
+}
+
+func getCurrentVersion() string {
+	return ipimVersion
+}
+
 func main() {
-
 	rootCmd.AddCommand(getCmd)
+	rootCmd.AddCommand(getRolesCmd)
 
-	fmt.Println("Hello, World!")
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println("IPIM Error: Pleae check the below error")
+		fmt.Println(err)
+	}
+
 	rootCmd.Execute()
 }
