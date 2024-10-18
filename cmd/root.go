@@ -18,7 +18,7 @@ var rootCmd = &cobra.Command{
 	Version: ipimVersion,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			fmt.Println(ipimUsage())
+			fmt.Println(IpimUsage())
 			return
 		}
 	},

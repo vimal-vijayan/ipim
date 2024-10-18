@@ -1,7 +1,7 @@
 package cmd
 
 // Custom usage message with ASCII art aligned to the left
-func ipimUsage() string {
+func IpimUsage() string {
 	return `
   ___    ___   ___   __  __
  |_ _|  | _ \ |_ _| |  \/  |
