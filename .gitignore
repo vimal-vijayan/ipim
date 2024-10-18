@@ -23,3 +23,28 @@ go.work.sum
 
 # env file
 .env
+# Go modules
+go.mod
+go.sum
+
+# IDE/editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Build directories
+bin/
+build/
+
+# Coverage reports
+coverage.out
+
+# Local environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
