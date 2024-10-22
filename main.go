@@ -1,4 +1,6 @@
-// The main package where the main function is defined
+/*
+Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+*/
 package main
 
 import "github.com/ipim/cmd"

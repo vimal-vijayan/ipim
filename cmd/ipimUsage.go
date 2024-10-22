@@ -18,10 +18,11 @@ Login to Azure using the command 'az login' before using this tool.
 
 Main Commands:
 
-get-pim 		Get the PIM Roles
-config		 	Generate the config YAML file for all the available roles, and later can be altered to assign the roles
-admin 			PIM Admin Commands
-status 			Get the current active roles
+show 		List all the available roles
+activate        Activate the roles
+config	        Generate the config YAML file for all the available roles, and later can be altered to assign the roles
+admin           PIM Admin Commands
+status 	        Get the current active roles
 
 Global Options (Use these options with the main commands/subcommands):
 
