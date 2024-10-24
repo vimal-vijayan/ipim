@@ -9,31 +9,75 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var showAllCmd = &cobra.Command{
+	Use:   "all",
+	Short: "List all available roles",
+	Long: `
+Usage: ipim [global options] show all [options] [args]
+
+This command has subcommands for advanced PIM management.
+
+You can use this command to list all the eligible role assignments using 
+Microsoft Entra PIM for Azure resources, Entra ID Roles and Azure Entra ID Groups. 
+With Microsoft Entra PIM, your end users must activate an eligible role assignment 
+to get permission to perform certain actions.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("showAll called")
+	},
+}
+
 // azureRolesCmd represents the azureRoles command
 var azureRolesCmd = &cobra.Command{
-	Use:   "resource",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Use:   "resources",
+	Short: "List the available PIM roles for azure resources",
+	Long: `
+Usage: ipim [global options] show resources [options] [args]
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+This command has subcommands for advanced PIM management.
+
+You can use this command to list the eligible role assignments using Microsoft Entra PIM for Azure resources. 
+With Microsoft Entra PIM, your end users must activate an eligible role assignment 
+to get permission to perform certain actions.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("azureRoles called")
 	},
 }
 
+var entraRolesCmd = &cobra.Command{
+	Use:   "entra",
+	Short: "List PIM roles for EntraID/AzureAD Roles",
+	Long: `
+Usage: ipim [global options] show entra [options] [args]
+
+This command has subcommands for advanced PIM management.
+
+You can use this command to list the eligible role assignments using Microsoft Entra PIM for Entra ID Roles. 
+With Microsoft Entra PIM, your end users must activate an eligible role assignment 
+to get permission to perform certain actions.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("entraRoles called")
+	},
+}
+
+var adGroupsCmd = &cobra.Command{
+	Use:   "groups",
+	Short: "List availalbe PIM roles for AD groups",
+	Long: `
+Usage: ipim [global options] show groups [options] [args]
+
+This command has subcommands for advanced PIM management.
+
+You can use this command to list the eligible role assignments using Microsoft Entra PIM for Azure Entra ID Groups. 
+With Microsoft Entra PIM, your end users must activate an eligible role assignment 
+to get permission to perform certain actions.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("adGroups called")
+	},
+}
+
 func init() {
+	ShowCmd.AddCommand(showAllCmd)
 	ShowCmd.AddCommand(azureRolesCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// azureRolesCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// azureRolesCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	ShowCmd.AddCommand(entraRolesCmd)
+	ShowCmd.AddCommand(adGroupsCmd)
 }
